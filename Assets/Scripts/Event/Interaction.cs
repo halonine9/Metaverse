@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class EventTrigger : MonoBehaviour
+public abstract class Interaction : MonoBehaviour
 {
     public string interactionMessage = "상호작용 메세지";
     protected bool playerInRange = false;

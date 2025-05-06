@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorInteraction : EventTrigger
+public class DoorInteraction : Interaction
 {
     public GameObject Closedoor;
     public GameObject Opendoor;
