@@ -7,8 +7,14 @@ public class BaesController : MonoBehaviour
     protected Rigidbody2D _rigidbody;
 
     [SerializeField] protected SpriteRenderer characterRenderer;
-    [SerializeField] private Transform weaponPivot;
-    
+    [Range(1f, 20f)] [SerializeField] private float speed = 5;
+
+    public float Speed
+    {
+        get => speed;
+        set => speed = Mathf.Clamp(value, 0, 20);
+    }
+
     protected Vector2 movementDirection = Vector2.zero;
     public Vector2 MovementDirection { get { return movementDirection; }}
     
@@ -19,12 +25,6 @@ public class BaesController : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         animationHandler = GetComponent<AnimationHandler>();
     }
-    
-    protected virtual void Start()
-    {
-        
-    }
-    
     protected virtual void Update()
     {
         Action();
@@ -42,7 +42,7 @@ public class BaesController : MonoBehaviour
     
     private void Movment(Vector2 direction)
     {
-        direction = direction * 5;
+        direction = direction * Speed;
         _rigidbody.velocity = direction;
         animationHandler.Move(direction);
     }

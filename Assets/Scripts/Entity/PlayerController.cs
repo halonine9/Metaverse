@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class PlayerController : BaesController
 {
-    private Camera camera;
     private bool isLeft = false;
-
-    protected override void Start()
-    {
-        base.Start();
-        camera = Camera.main;
-    }
-
+    
     protected override void Action()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
