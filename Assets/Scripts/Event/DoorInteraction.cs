@@ -21,4 +21,8 @@ public class DoorInteraction : Interaction
         Closedoor.SetActive(!isOpen);
         Opendoor.SetActive(isOpen);
     }
+
+    public override void Dialog()
+    {
+    }
 }

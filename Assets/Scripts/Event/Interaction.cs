@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Interaction : MonoBehaviour
 {
     public string interactionMessage = "상호작용 메세지";
+    public string DialogMessage = "상호작용 메세지";
     protected bool playerInRange = false;
     protected virtual void Update()
     {
@@ -12,7 +13,10 @@ public abstract class Interaction : MonoBehaviour
         {
             Interact();
         }
-        
+        if (playerInRange && Input.GetKeyDown(KeyCode.T))
+        {
+            Dialog();
+        }
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
@@ -34,4 +38,7 @@ public abstract class Interaction : MonoBehaviour
     }
 
     public abstract void Interact();
+  
+    public abstract void Dialog();
+
 }

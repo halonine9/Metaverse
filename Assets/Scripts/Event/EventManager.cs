@@ -10,7 +10,9 @@ public class EventManager : MonoBehaviour
     public static EventManager Instance;
 
     public GameObject interactionUI;
+    public GameObject DialogUI;
     public Text interactionText;
+    public Text DialogText;
 
     private RectTransform interactionRect;
     private Camera mainCam;
@@ -37,15 +39,22 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    public void ShowInteraction(string message, Transform target)
+    public void ShowInteraction(string message, Transform target) 
     {
         interactionText.text = message;
         interactionUI.SetActive(true);
         Target = target;
     }
-
+    public void ShowDialog(string message)
+    {
+        DialogText.text = message;
+        DialogUI.SetActive(true);
+        Target = null;
+    }
     public void HideInteraction()
     {
         interactionUI.SetActive(false);
+        DialogUI.SetActive(false);
     }
+    
 }
