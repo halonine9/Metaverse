@@ -7,7 +7,7 @@ public class DoorInteraction : Interaction
     public GameObject Closedoor;
     public GameObject Opendoor;
     private bool isOpen = false;
-
+    
     private void Start()
     {
         Closedoor.SetActive(true);
@@ -21,7 +21,7 @@ public class DoorInteraction : Interaction
         Closedoor.SetActive(!isOpen);
         Opendoor.SetActive(isOpen);
     }
-
+    
     public override void Dialog()
     {
     }

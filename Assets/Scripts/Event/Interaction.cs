@@ -4,8 +4,8 @@ using UnityEngine;
 
 public abstract class Interaction : MonoBehaviour
 {
-    public string interactionMessage = "상호작용 메세지";
-    public string DialogMessage = "상호작용 메세지";
+    public string interactionMessage = "상호 작용 메세지";
+    public string DialogMessage = "대화 내용 메세지";
     protected bool playerInRange = false;
     protected virtual void Update()
     {
