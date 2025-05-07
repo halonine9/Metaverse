@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     }
     
     private int currentScore = 0;
+    private int highScore = 0;
     UIManager uiManager;
 
     public UIManager UIManager
@@ -23,6 +24,8 @@ public class GameManager : MonoBehaviour
     {
         gameManager = this;
         uiManager = FindObjectOfType<UIManager>();
+        
+        highScore = PlayerPrefs.GetInt("HighScore", 0);
     }
     
     private void Start()
@@ -33,12 +36,25 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         Debug.Log("Game Over");
+        
+        if (currentScore > highScore)
+        {
+            highScore = currentScore;
+            PlayerPrefs.SetInt("HighScore", highScore);
+            PlayerPrefs.Save();
+        }
+        
         uiManager.SetRestart();
     }
     
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    
+    public void MainScene()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
     }
 
     public void AddScore(int score)

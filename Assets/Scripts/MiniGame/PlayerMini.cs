@@ -60,6 +60,10 @@ public class PlayerMini : MonoBehaviour
                 isFlap = true;
             }
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            gameManager.MainScene();
+        }
     }
 
     public void FixedUpdate()
